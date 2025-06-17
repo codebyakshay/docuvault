@@ -55,9 +55,9 @@ npx expo start
 
 ## 📸 Screenshots
 
-| Splash / Unlock                       | Onboarding                            | SignUp                                | Login                                  | Home/Dashboard                         |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- | -------------------------------------- | -------------------------------------- |
-| ![Splash](./assets/screenshots/1.png) | ![Signup](./assets/screenshots/2.png) | ![Signup](./assets/screenshots/3.png) | ![Preview](./assets/screenshots/4.png) | ![Preview](./assets/screenshots/5.png) |
+| Splash / Unlock                        | Onboarding                             | SignUp                                 | Login                                  | Home/Dashboard                         |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| ![Preview](./assets/screenshots/1.png) | ![Preview](./assets/screenshots/2.png) | ![Preview](./assets/screenshots/3.png) | ![Preview](./assets/screenshots/4.png) | ![Preview](./assets/screenshots/5.png) |
 
 ---
 
