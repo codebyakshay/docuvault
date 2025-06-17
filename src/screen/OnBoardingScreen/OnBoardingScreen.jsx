@@ -6,16 +6,24 @@ import { LinearGradient } from "expo-linear-gradient";
 import IMAGES from "@/constants/IMAGES";
 import Button from "@/constants/Button";
 import RoundLogoButton from "@/constants/RoundLogoButton";
-import { lightTheme } from "@/constants/THEME";
 import { TypeAnimation } from "react-native-type-animation";
 import { StatusBar } from "expo-status-bar";
+import { MMKV } from "react-native-mmkv";
 
-export default function OnBoardingScreen() {
+const storage = new MMKV();
+
+export default function OnBoardingScreen({ navigation }) {
+  function handleOnPress() {
+    storage.set("onboarding_seen", true);
+    navigation.replace("SignupScreen");
+  }
+
   return (
-    <>
+    <SafeAreaView style={[styles.screen, { backgroundColor: "#ffffff" }]}>
       <StatusBar hidden />
+
       <LinearGradient
-        colors={["transparent", lightTheme.colors.BACKGROUND]}
+        colors={["rgba(255,255,255,0)", "#ffffff"]}
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 1 }}
         style={StyleSheet.absoluteFill}
@@ -30,6 +38,7 @@ export default function OnBoardingScreen() {
           />
         </View>
       </View>
+
       <View style={styles.bottomViewContainer}>
         <Text style={styles.bottomViewText}>Welcome</Text>
         <Text style={styles.bottomViewText}>To</Text>
@@ -46,16 +55,8 @@ export default function OnBoardingScreen() {
       </View>
 
       <View style={styles.bottomBtnContainer}>
-        <View>
-          <Button
-            Title={"Let's Begin"}
-            onPress={() => console.log("pressed")}
-          />
-        </View>
-        <View style={{ marginHorizontal: lightTheme.spacing.SM }}>
-          <RoundLogoButton />
-        </View>
+        <Button Title={"Let's Begin"} onPress={handleOnPress} />
       </View>
-    </>
+    </SafeAreaView>
   );
 }

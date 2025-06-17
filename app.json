@@ -1,12 +1,13 @@
 {
   "expo": {
-    "name": "docuvault",
-    "slug": "docuvault",
-    "version": "1.1.0",
+    "name": "Docuvault",
+    "slug": "Docuvault",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "runtimeVersion": "1.0.0",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -16,6 +17,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.codebyakshay.docuvault",
       "infoPlist": {
+        "NSFaceIDUsageDescription": "We use Face ID to unlock your secure vault.",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
@@ -25,18 +27,21 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.codebyakshay.docuvault"
+      "package": "com.docuvault"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "4410e80c-3a1e-41fd-9f43-bbc7f250c51e"
+        "projectId": "0a01f45d-a2a2-4c3e-bd4f-63b58e0c81a5"
       }
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "updates": {
+      "url": "https://u.expo.dev/4410e80c-3a1e-41fd-9f43-bbc7f250c51e"
+    }
   }
 }

@@ -3,9 +3,17 @@ import React from "react";
 import { lightTheme } from "./THEME";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
-const Button = ({ onPress, Title }) => {
+const Button = ({ onPress, Title, width, height, style }) => {
   return (
-    <Pressable style={styles.btnContainer} onPress={onPress}>
+    <Pressable
+      style={[
+        styles.btnContainer,
+        style,
+        width !== undefined && { width },
+        height !== undefined && { height },
+      ]}
+      onPress={onPress}
+    >
       <Text style={styles.btnText}>{Title}</Text>
       <MaterialIcons name="arrow-forward-ios" size={20} color="black" />
     </Pressable>

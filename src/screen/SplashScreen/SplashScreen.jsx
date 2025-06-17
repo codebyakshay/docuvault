@@ -1,21 +1,18 @@
 // src/screens/SplashScreen/SplashScreen.jsx
 
+import { View, Image, useColorScheme } from "react-native";
+import { useEffect, useState } from "react";
 import { Animated } from "react-native";
-
-import {
-  View,
-  Image,
-  StyleSheet,
-  useColorScheme,
-  Appearance,
-} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { MMKV } from "react-native-mmkv";
+
 import { lightTheme, darkTheme } from "@/constants/THEME";
 import IMAGES from "@/constants/IMAGES";
-import { useEffect, useState } from "react";
 import { styles } from "./styles";
 
-export default function SplashScreen() {
+const storage = new MMKV();
+
+export default function SplashScreen({ navigation }) {
   const colorScheme = useColorScheme();
   const [fadeAnim] = useState(new Animated.Value(0));
   const [scaleAnim] = useState(new Animated.Value(0.9));
@@ -33,6 +30,22 @@ export default function SplashScreen() {
         useNativeDriver: true,
       }),
     ]).start();
+
+    // After 2 seconds, navigate to the appropriate screen
+    const hasSeenOnboarding = storage.getBoolean("onboarding_seen");
+    const hasAuth = storage.getBoolean("biomatrics");
+
+    const timeout = setTimeout(() => {
+      if (!hasSeenOnboarding) {
+        navigation.replace("OnBoardingScreen");
+      } else if (!hasAuth) {
+        navigation.replace("SignupScreen");
+      } else {
+        navigation.replace("LoginScreen");
+      }
+    }, 2000);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
