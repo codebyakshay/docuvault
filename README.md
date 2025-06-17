@@ -55,11 +55,9 @@ npx expo start
 
 ## 📸 Screenshots
 
-| Splash / Unlock                                           | Signup                                                  | Onboarding                                             | Document Preview                                           |
-| --------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
-| ![Splash](./assets/screenshots/Screenshot_1750050362.png) | ![Home](./assets/screenshots/Screenshot_1750050369.png) | ![Add](./assets/screenshots/Screenshot_1750050380.png) | ![Preview](./assets/screenshots/Screenshot_1750050389.png) |
-
-> 📁 Screenshots are located in `assets/screenshots/`. Resize or compress them using tools like [Squoosh](https://squoosh.app) if needed for optimization.
+| Splash / Unlock                       | Onboarding                            | SignUp                                | Login                                  | Home/Dashboard                         |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- | -------------------------------------- | -------------------------------------- |
+| ![Splash](./assets/screenshots/1.png) | ![Signup](./assets/screenshots/2.png) | ![Signup](./assets/screenshots/3.png) | ![Preview](./assets/screenshots/4.png) | ![Preview](./assets/screenshots/5.png) |
 
 ---
 
