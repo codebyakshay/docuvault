@@ -55,7 +55,7 @@ npx expo start
 
 ## 📸 Screenshots
 
-| Splash / Unlock                                           | Home (Vault)                                            | Add Document                                           | Document Preview                                           |
+| Splash / Unlock                                           | Signup                                                  | Onboarding                                             | Document Preview                                           |
 | --------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------- |
 | ![Splash](./assets/screenshots/Screenshot_1750050362.png) | ![Home](./assets/screenshots/Screenshot_1750050369.png) | ![Add](./assets/screenshots/Screenshot_1750050380.png) | ![Preview](./assets/screenshots/Screenshot_1750050389.png) |
 
