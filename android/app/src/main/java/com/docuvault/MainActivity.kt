@@ -1,4 +1,4 @@
-package com.codebyakshay.docuvault
+package com.docuvault
 
 import android.os.Build
 import android.os.Bundle

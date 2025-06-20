@@ -87,9 +87,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.codebyakshay.docuvault'
+    namespace 'com.docuvault'
     defaultConfig {
-        applicationId 'com.codebyakshay.docuvault'
+        applicationId 'com.docuvault'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

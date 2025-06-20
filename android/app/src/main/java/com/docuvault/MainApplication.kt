@@ -1,4 +1,4 @@
-package com.codebyakshay.docuvault
+package com.docuvault
 
 import android.app.Application
 import android.content.res.Configuration

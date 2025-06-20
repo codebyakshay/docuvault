@@ -12,8 +12,9 @@ import { styles } from "./styles";
 
 const storage = new MMKV();
 
-export default function SplashScreen({ navigation }) {
+export function SplashScreen({ navigation }) {
   const colorScheme = useColorScheme();
+
   const [fadeAnim] = useState(new Animated.Value(0));
   const [scaleAnim] = useState(new Animated.Value(0.9));
 

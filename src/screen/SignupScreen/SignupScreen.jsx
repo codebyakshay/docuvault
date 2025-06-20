@@ -15,17 +15,19 @@ export default function SignupScreen({ navigation }) {
     const hasHardware = await LocalAuthentication.hasHardwareAsync();
     const supported =
       await LocalAuthentication.supportedAuthenticationTypesAsync();
+
     const enrolled = await LocalAuthentication.isEnrolledAsync();
-    console.log(enrolled);
+
     if (hasHardware && supported.length > 0 && enrolled) {
       const result = await LocalAuthentication.authenticateAsync({
         promptMessage: "Setup authentication to use Docuvault",
         fallbackLabel: "Use Passcode",
         disableDeviceFallback: false,
       });
-      console.log(result);
+
       if (result.success) {
         storage.set("biomatrics", true);
+
         navigation.replace("MainApp");
       } else {
         // User cancelled or failed auth

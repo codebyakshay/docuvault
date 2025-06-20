@@ -1,6 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import BottomTabs from "./BottomTabs";
+import NewScreen from "@/screen/NewScreen/NewScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -18,6 +19,8 @@ export default function MainDrawer() {
       }}
     >
       <Drawer.Screen name="DocuVault" component={BottomTabs} />
+
+      <Drawer.Screen name="New Screen" component={NewScreen} />
     </Drawer.Navigator>
   );
 }

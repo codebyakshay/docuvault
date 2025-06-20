@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 /* SCREENS */
 import HomeScreen from "@/screen/HomeScreen/HomeScreen";
-import SplashScreen from "@/screen/SplashScreen/SplashScreen";
+import { SplashScreen } from "@/screen/SplashScreen/SplashScreen";
 import OnBoardingScreen from "@/screen/OnBoardingScreen/OnBoardingScreen";
 import SignupScreen from "@/screen/SignupScreen/SignupScreen";
 import LoginScreen from "@/screen/LoginScreen/LoginScreen";
