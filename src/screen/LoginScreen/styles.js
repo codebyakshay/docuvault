@@ -8,12 +8,15 @@ export const styles = StyleSheet.create({
   },
 
   topConatiner: {
-    flex: 2,
+    flex: 3,
     justifyContent: "center",
     alignItems: "center",
   },
   topImageContainer: {
-    width: 110,
+    justifyContent: "center",
+    alignItems: "center",
+    width: 130,
+    height: 130,
   },
 
   topTextStyle: {
@@ -22,7 +25,7 @@ export const styles = StyleSheet.create({
   },
 
   middleContainer: {
-    flex: 2,
+    flex: 1.5,
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",

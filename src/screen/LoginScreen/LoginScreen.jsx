@@ -58,11 +58,8 @@ export default function LoginScreen({ navigation }) {
         <View style={styles.topImageContainer}>
           <Image
             source={IMAGES.LOGO[colorScheme]}
-            style={{
-              height: "100%",
-              width: "100%",
-            }}
-            resizeMode="center"
+            style={{ width: "100%", height: "100%" }}
+            resizeMode="contain"
           />
         </View>
       </View>

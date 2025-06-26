@@ -70,7 +70,7 @@ export function SplashScreen({ navigation }) {
           <View style={styles.topImageContainer}>
             <Image
               source={IMAGES.LOGO[colorScheme]}
-              style={styles.imageStyle}
+              style={{ width: "100%", height: "100%" }}
               resizeMode="center"
             />
           </View>
