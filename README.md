@@ -4,6 +4,12 @@
 
 **DocuVault** is a secure, offline-first document vault built with React Native. It helps you store, organize, and manage your sensitive documents like IDs, certificates, and bills — all on your device, privately and securely.
 
+## 📸 Screenshots
+
+|<img src="./assets/screenshots/1.png" width="150" height="300"/>|<img src="./assets/screenshots/2.png" width="150"  height="300" />|<img src="./assets/screenshots/3.png" width="150"  height="300" />|<img src="./assets/screenshots/4.png" width="150" height="300" />|<img src="./assets/screenshots/5.png" width="150" height="300" /> |
+
+## 🎥 GIF
+
 ---
 
 ## ✨ Features
@@ -29,11 +35,3 @@
 - ICONS - Feather / Ionicons / Material Icons
 
 ---
-
-## 📸 Screenshots
-
-| <img src="./assets/screenshots/1.png" width="180" height="300"/> | <img src="./assets/screenshots/2.png" width="180"  height="300" /> | <img src="./assets/screenshots/3.png" width="180"  height="300" /> | <img src="./assets/screenshots/4.png" width="180" height="300" /> | <img src="./assets/screenshots/5.png" width="180" height="300" /> |
-
----
-
-## 📸 GIF
