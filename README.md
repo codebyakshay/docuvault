@@ -32,8 +32,8 @@
 
 ## 📸 Screenshots
 
-| Splash / Unlock                                                  | Onboarding                                                         | SignUp                                                                         | Login                                                             | Home/Dashboard                                                    |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
-| <img src="./assets/screenshots/1.png" width="180" height="200"/> | <img src="./assets/screenshots/2.png" width="180"  height="200" /> | <img src="./assets/screenshots/3.png" width="180" height="200" height="200" /> | <img src="./assets/screenshots/4.png" width="180" height="200" /> | <img src="./assets/screenshots/5.png" width="180" height="200" /> |
+| <img src="./assets/screenshots/1.png" width="180" height="300"/> | <img src="./assets/screenshots/2.png" width="180"  height="300" /> | <img src="./assets/screenshots/3.png" width="180"  height="300" /> | <img src="./assets/screenshots/4.png" width="180" height="300" /> | <img src="./assets/screenshots/5.png" width="180" height="300" /> |
 
 ---
+
+## 📸 GIF
