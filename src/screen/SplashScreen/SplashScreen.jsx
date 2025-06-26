@@ -4,13 +4,11 @@ import { View, Image, useColorScheme } from "react-native";
 import { useEffect, useState } from "react";
 import { Animated } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { MMKV } from "react-native-mmkv";
+import { storage } from "@/utils/storage";
 
 import { lightTheme, darkTheme } from "@/constants/THEME";
 import IMAGES from "@/constants/IMAGES";
 import { styles } from "./styles";
-
-const storage = new MMKV();
 
 export function SplashScreen({ navigation }) {
   const colorScheme = useColorScheme();

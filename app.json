@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
     "runtimeVersion": "1.0.0",
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -15,7 +15,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.codebyakshay.docuvault",
+      "bundleIdentifier": "com.docuvault",
       "infoPlist": {
         "NSFaceIDUsageDescription": "We use Face ID to unlock your secure vault.",
         "ITSAppUsesNonExemptEncryption": false
@@ -34,7 +34,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "97db3892-2cf7-49d5-a0bc-01273b6ec6f8"
+        "projectId": "cdc78a03-a11b-408c-a1ae-7168f274d490"
       }
     },
     "plugins": [
@@ -42,6 +42,7 @@
     ],
     "updates": {
       "url": "https://u.expo.dev/4410e80c-3a1e-41fd-9f43-bbc7f250c51e"
-    }
+    },
+    "owner": "razer_ak"
   }
 }

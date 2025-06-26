@@ -8,7 +8,7 @@ const IMAGES = {
     dark: require("../../assets/image/splash-black.png"),
   },
   ONBOARDING: {
-    light: require("../../assets/image/onBoardingScreenImage.png"),
+    light: require("../../assets/image/onboaring-PSD.png"),
   },
 };
 

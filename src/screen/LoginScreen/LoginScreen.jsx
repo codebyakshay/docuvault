@@ -5,10 +5,7 @@ import IMAGES from "@/constants/IMAGES";
 import Button from "@/constants/Button";
 
 import * as LocalAuthentication from "expo-local-authentication";
-
-import { MMKV } from "react-native-mmkv";
-
-const storage = new MMKV();
+import { storage } from "@/utils/storage";
 
 //icons
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";

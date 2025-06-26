@@ -27,7 +27,13 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.codebyakshay.docuvault</string>
+          <string>com.docuvault</string>
+        </array>
+      </dict>
+      <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+          <string>exp+docuvault</string>
         </array>
       </dict>
     </array>

@@ -34,11 +34,7 @@ export default function BottomTabs() {
               padding: 8,
             }}
           >
-            {isDrawerOpen || colorScheme === "dark" ? (
-              <AntDesign name="menu-fold" size={26} color="white" />
-            ) : (
-              <AntDesign name="menu-unfold" size={26} color="black" />
-            )}
+            <AntDesign name="menu-fold" size={26} color="white" />
           </Pressable>
         ),
 
@@ -53,14 +49,13 @@ export default function BottomTabs() {
         component={HomeScreen}
         options={{
           iconName: "home",
-          iconType: AntDesign, // import this at the top
-
+          iconType: AntDesign,
+          headerTitleAlign: "center",
           headerTitle: ({}) => (
             <View
               style={{
                 justifyContent: "center",
                 alignItems: "center",
-
                 marginTop: 10,
               }}
             >
@@ -70,7 +65,6 @@ export default function BottomTabs() {
               />
             </View>
           ),
-
           headerStyle: {
             backgroundColor:
               colorScheme === "dark"

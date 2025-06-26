@@ -7,10 +7,12 @@ const COLORS = {
     PRIMARY: "#007fff",
 
     // ⚪ Background or card surfaces (light theme)
-    BACKGROUND: "#ffffff",
+    BACKGROUND: "##fffdfa",
 
     // 🔘 Accent or button highlights
     ACCENT: "#03a9f4",
+
+    CARD_BACKGROUND_LIGHT: "#e8e8e8", // a very light gray,
 
     // 🖤 Text or icon color on light background
     TEXT_PRIMARY: "#212121",
@@ -39,7 +41,8 @@ const COLORS = {
     // 🟦 Lighter version of primary to stand out on dark background
     PRIMARY: "#82b1ff",
 
-    // 🌑 Main background for dark theme
+    CARD_BACKGROUND_DARK: "#1E1E1E",
+
     BACKGROUND: "#121212",
 
     // 🧱 Elevated surfaces like cards

@@ -9,7 +9,25 @@ export const styles = StyleSheet.create({
 
   searchBoxContainer: {},
 
+  sectionHeaderContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "baseline",
+    paddingHorizontal: lightTheme.spacing.MD,
+
+    padding: 4,
+  },
+
+  listContainer: {
+    marginBottom: 100,
+  },
+
   middleContainer: {
-    padding: lightTheme.spacing.SM,
+    paddingVertical: lightTheme.spacing.MD,
+  },
+
+  rowContainer: {
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
 });

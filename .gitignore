@@ -1,10 +1,5 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-./android
-./ios
-
-/ios
-/android
 
 # dependencies
 node_modules/
@@ -56,6 +51,7 @@ dist/
 web-build/
 expo-env.d.ts
 
+
 # Native
 *.orig.*
 *.jks
@@ -83,3 +79,5 @@ yarn-error.*
 *.tsbuildinfo
 
 # @end expo-cli
+
+

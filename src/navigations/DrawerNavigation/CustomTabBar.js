@@ -1,18 +1,41 @@
-import { View, Text, Pressable } from "react-native";
+import React, { useEffect, useRef } from "react";
+import { View, Text, Pressable, Animated } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
 export default function CustomTabBar({ state, descriptors, navigation }) {
+  // Determine which route is focused
+  const focusedRouteKey = state.routes[state.index].key;
+  // Pull the tabBarStyle option (e.g. display: 'none') set via navigation.setOptions
+  const { tabBarStyle } = descriptors[focusedRouteKey].options;
+
+  // Animated value for fade in/out
+  const opacity = useRef(
+    new Animated.Value(tabBarStyle?.display === "none" ? 0 : 1)
+  ).current;
+
+  // Animate opacity whenever tabBarStyle.display changes
+  useEffect(() => {
+    Animated.timing(opacity, {
+      toValue: tabBarStyle?.display === "none" ? 0 : 1,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+  }, [tabBarStyle?.display, opacity]);
+
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        position: "absolute",
-        bottom: 80,
-        left: 30,
-        borderRadius: 999,
-        zIndex: 99,
-        alignItems: "center",
-      }}
+    <Animated.View
+      style={[
+        {
+          flexDirection: "row",
+          position: "absolute",
+          bottom: 80,
+          left: 30,
+          borderRadius: 999,
+          zIndex: 99,
+          alignItems: "center",
+        },
+        { opacity }, // fade in/out
+      ]}
     >
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -68,6 +91,6 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
           </Pressable>
         );
       })}
-    </View>
+    </Animated.View>
   );
 }

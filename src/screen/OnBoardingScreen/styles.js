@@ -14,8 +14,8 @@ export const styles = StyleSheet.create({
   },
 
   onboardImageConatiner: {
-    height: 450,
-    width: 600,
+    height: 350,
+    width: 500,
   },
 
   bottomViewContainer: {

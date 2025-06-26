@@ -3,6 +3,7 @@
 const SPACING = {
   XS: 4, // tiny gaps (e.g., between icon + text)
   SM: 8, // small padding or vertical gap in cards
+  SSM: 14, // small padding or vertical gap in cards
   MD: 16, // standard space between sections
   MMD: 22,
   LG: 24, // larger padding (screen edges)
