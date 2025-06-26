@@ -19,29 +19,6 @@
 
 ---
 
-## 🚀 Getting Started
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/your-username/docuvault.git
-cd docuvault
-```
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Run on Expo
-
-```bash
-npx expo start
-```
-
----
-
 ## 🛠 Tech Stack
 
 - React Native (Expo)
@@ -55,8 +32,8 @@ npx expo start
 
 ## 📸 Screenshots
 
-| Splash / Unlock                                     | Onboarding                                          | SignUp                                              | Login                                               | Home/Dashboard                                      |
-| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
-| <img src="./assets/screenshots/1.png" width="180"/> | <img src="./assets/screenshots/2.png" width="180"/> | <img src="./assets/screenshots/3.png" width="180"/> | <img src="./assets/screenshots/4.png" width="180"/> | <img src="./assets/screenshots/5.png" width="180"/> |
+| Splash / Unlock                                                  | Onboarding                                                         | SignUp                                                                         | Login                                                             | Home/Dashboard                                                    |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| <img src="./assets/screenshots/1.png" width="180" height="200"/> | <img src="./assets/screenshots/2.png" width="180"  height="200" /> | <img src="./assets/screenshots/3.png" width="180" height="200" height="200" /> | <img src="./assets/screenshots/4.png" width="180" height="200" /> | <img src="./assets/screenshots/5.png" width="180" height="200" /> |
 
 ---
