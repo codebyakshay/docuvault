@@ -49,18 +49,14 @@ npx expo start
 - Redux Toolkit
 - React Navigation
 - Custom Hooks & Modular Design
-- Feather / Ionicons / Material Icons
+- ICONS - Feather / Ionicons / Material Icons
 
 ---
 
 ## 📸 Screenshots
 
-| Splash / Unlock                        | Onboarding                             | SignUp                                 | Login                                  | Home/Dashboard                         |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| ![Preview](./assets/screenshots/1.png) | ![Preview](./assets/screenshots/2.png) | ![Preview](./assets/screenshots/3.png) | ![Preview](./assets/screenshots/4.png) | ![Preview](./assets/screenshots/5.png) |
+| Splash / Unlock                                     | Onboarding                                          | SignUp                                              | Login                                               | Home/Dashboard                                      |
+| --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| <img src="./assets/screenshots/1.png" width="180"/> | <img src="./assets/screenshots/2.png" width="180"/> | <img src="./assets/screenshots/3.png" width="180"/> | <img src="./assets/screenshots/4.png" width="180"/> | <img src="./assets/screenshots/5.png" width="180"/> |
 
 ---
-
-## 📄 License
-
-MIT License. See [LICENSE](./LICENSE) file for details.
