@@ -9,7 +9,7 @@
 ## 🎥 GIF
 
 <div align="center">
-  <img src="./assets/screenshots/sr.gif" alt="DocuVault Demo" width="300" />
+  <img src="./assets/screenshots/" alt="DocuVault Demo" width="300" />
 </div>
 
 ---
