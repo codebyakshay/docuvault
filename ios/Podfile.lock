@@ -307,6 +307,8 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - ExpoSQLite (15.2.12):
+    - ExpoModulesCore
   - ExpoSystemUI (5.0.9):
     - ExpoModulesCore
   - EXStructuredHeaders (4.1.0)
@@ -2389,6 +2391,7 @@ DEPENDENCIES:
   - ExpoLinearGradient (from `../node_modules/expo-linear-gradient/ios`)
   - ExpoLocalAuthentication (from `../node_modules/expo-local-authentication/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core`)
+  - ExpoSQLite (from `../node_modules/expo-sqlite/ios`)
   - ExpoSystemUI (from `../node_modules/expo-system-ui/ios`)
   - EXStructuredHeaders (from `../node_modules/expo-structured-headers/ios`)
   - EXUpdates (from `../node_modules/expo-updates/ios`)
@@ -2513,6 +2516,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-local-authentication/ios"
   ExpoModulesCore:
     :path: "../node_modules/expo-modules-core"
+  ExpoSQLite:
+    :path: "../node_modules/expo-sqlite/ios"
   ExpoSystemUI:
     :path: "../node_modules/expo-system-ui/ios"
   EXStructuredHeaders:
@@ -2692,6 +2697,7 @@ SPEC CHECKSUMS:
   ExpoLinearGradient: 7734c8059972fcf691fb4330bcdf3390960a152d
   ExpoLocalAuthentication: 490fac71e8b2ad9f1252ee7c7b391f85db1fae33
   ExpoModulesCore: d431ffe83c8673d02cb38425594a5f5480fd3061
+  ExpoSQLite: 2b98a2e1a293969e8e1fb639f81d0095a250485a
   ExpoSystemUI: 8f2979df9afed5bfaa7d69465a07a9f602c1f3a7
   EXStructuredHeaders: 32bec6771c2db18c4cd47cecae530d1d06cdf972
   EXUpdates: 460258079f485480640384cb72349d462178edba

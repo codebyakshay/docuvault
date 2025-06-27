@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "runtimeVersion": "1.0.0",
     "splash": {
       "image": "./assets/splash-icon.png",
@@ -38,7 +38,14 @@
       }
     },
     "plugins": [
-      "expo-font"
+      "expo-font",
+      [
+        "expo-sqlite",
+        {
+          "enableFTS": true,
+          "useSQLCipher": true
+        }
+      ]
     ],
     "updates": {
       "url": "https://u.expo.dev/4410e80c-3a1e-41fd-9f43-bbc7f250c51e"

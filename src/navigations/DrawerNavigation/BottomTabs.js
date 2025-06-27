@@ -11,6 +11,7 @@ import { useDrawerStatus } from "@react-navigation/drawer";
 import IMAGES from "@/constants/IMAGES";
 import { darkTheme, lightTheme } from "@/constants/THEME";
 import Menu from "@/../assets/image/menu.svg";
+import SQLiteTestScreen from "@/screen/SQLiteTestScreen/SQLiteTestScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -20,10 +21,9 @@ export default function BottomTabs() {
 
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="SQLiteTestScreen"
       screenOptions={({ navigation }) => ({
         headerShown: true,
-
         headerRight: () => (
           <Pressable
             onPress={() => navigation.toggleDrawer()}
@@ -93,6 +93,8 @@ export default function BottomTabs() {
           iconType: MaterialIcons, // import this at the top
         }}
       />
+
+      <Tab.Screen name="SQLiteTestScreen" component={SQLiteTestScreen} />
     </Tab.Navigator>
   );
 }
