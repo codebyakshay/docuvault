@@ -10,6 +10,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useDrawerStatus } from "@react-navigation/drawer";
 import IMAGES from "@/constants/IMAGES";
 import { darkTheme, lightTheme } from "@/constants/THEME";
+import Menu from "@/../assets/image/menu.svg";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,10 +32,9 @@ export default function BottomTabs() {
               marginBottom: 2,
               justifyContent: "center",
               alignItems: "center",
-              padding: 8,
             }}
           >
-            <AntDesign name="menu-fold" size={26} color="white" />
+            <Menu size={26} color="white" width="30" height="30" />
           </Pressable>
         ),
 

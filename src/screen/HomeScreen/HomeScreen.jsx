@@ -13,6 +13,8 @@ import { FOLDERS } from "@/data/FOLDER";
 import ScrollAwareFlatList from "@/constants/ScrollAwareFlatList/ScrollAwareFlatList";
 import { Text } from "react-native";
 import ShowAllToggleBtn from "@/constants/ShowAllToggleBtn";
+import SubHeadingText from "@/constants/SubHeadingText";
+import { ScrollView } from "react-native-gesture-handler";
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme();
@@ -42,44 +44,27 @@ export default function HomeScreen() {
           <SearchBar ref={searchRef} />
         </View>
 
-        <View style={styles.sectionHeaderContainer}>
+        <ScrollView>
           <View>
-            <Text
-              style={[
-                {
-                  fontFamily: lightTheme.fonts.MEDIUM,
-                  color:
-                    colorScheme === "dark"
-                      ? darkTheme.colors.PRIMARY
-                      : lightTheme.colors.PRIMARY,
-                },
-              ]}
-            >
-              FOLDERS
-            </Text>
+            <SubHeadingText title={"Folders"} toggleTitle={"Show All"} />
           </View>
-          <View>
-            <ShowAllToggleBtn colorScheme={colorScheme} title={"Show All"} />
-          </View>
-        </View>
 
-        <View style={styles.listContainer}>
-          <ScrollAwareFlatList
-            numColumns={2}
-            contentContainerStyle={styles.middleContainer}
-            columnWrapperStyle={styles.rowContainer}
-            showsVerticalScrollIndicator={false}
-            data={FOLDERS}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <FolderCard
-                title={item.name}
-                iconName={item.iconName}
-                iconType={item.iconType}
-              />
-            )}
-          />
-        </View>
+          <View style={styles.listContainer}>
+            {FOLDERS.slice(0, 4).map((item) => (
+              <View key={item.id} style={styles.rowContainer}>
+                <FolderCard
+                  title={item.name}
+                  iconName={item.iconName}
+                  iconType={item.iconType}
+                />
+              </View>
+            ))}
+          </View>
+
+          <View style={styles.recentContainer}>
+            <SubHeadingText title={"Recently Added"} toggleTitle={"Show All"} />
+          </View>
+        </ScrollView>
       </View>
     </TouchableWithoutFeedback>
   );

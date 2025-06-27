@@ -9,17 +9,11 @@ export const styles = StyleSheet.create({
 
   searchBoxContainer: {},
 
-  sectionHeaderContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "baseline",
-    paddingHorizontal: lightTheme.spacing.MD,
-
-    padding: 4,
-  },
-
   listContainer: {
-    marginBottom: 100,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 5,
+    justifyContent: "center",
   },
 
   middleContainer: {
@@ -27,7 +21,8 @@ export const styles = StyleSheet.create({
   },
 
   rowContainer: {
-    justifyContent: "space-evenly",
-    alignItems: "center",
+    margin: 8,
   },
+
+  recentContainer: {},
 });

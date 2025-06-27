@@ -31,7 +31,7 @@ export default function LoginScreen({ navigation }) {
 
       if (result.success) {
         storage.set("isLoggedIn", true);
-        navigation.navigate("MainApp");
+        navigation.replace("MainApp");
       } else {
         Alert.alert("Authentication Failed", "Please try again.");
       }

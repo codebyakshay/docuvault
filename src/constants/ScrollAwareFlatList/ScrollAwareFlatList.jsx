@@ -15,6 +15,10 @@ const ScrollAwareFlatList = ({ threshold = 2, ...props }) => {
     ({ nativeEvent }) => {
       if (!isScrolling.current) return;
 
+      if (contentHeight.current <= layoutHeight.current) {
+        return; // Don't process scroll if content doesn't overflow
+      }
+
       let offsetY = nativeEvent.contentOffset.y;
       offsetY = Math.max(offsetY, 0); // Clamp bounce/negative scroll
 

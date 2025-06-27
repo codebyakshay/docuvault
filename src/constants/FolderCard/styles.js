@@ -7,17 +7,13 @@ export const styles = StyleSheet.create({
     padding: 8,
     borderRadius: lightTheme.radius.MD,
     alignItems: "center",
-    marginVertical: 6,
-    marginHorizontal: 2,
   },
 
   pressed: {
     opacity: 0.5,
   },
 
-  logoContainer: {
-    padding: 8,
-  },
+  logoContainer: {},
 
   textContainer: {
     padding: 8,
