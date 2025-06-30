@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		14BD2D3894A462683AC878E0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DEC2A16B17424DEED00F40 /* ExpoModulesProvider.swift */; };
+		3945B706B13D3E1A4F14B6BA /* libPods-Docuvault.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7398742638A28B6D969A1827 /* libPods-Docuvault.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		40BC344DBEDC8D9E13265437 /* libPods-Docuvault.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 727B7F753B575E1DBDA0ACC7 /* libPods-Docuvault.a */; };
-		6DD50FAF2F6DBD644455513B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3C3FBE99E178CE502FB2DF6E /* PrivacyInfo.xcprivacy */; };
+		5E1621303EEEE369A7A4560E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 55F7A86FC981A2C76BBFF901 /* PrivacyInfo.xcprivacy */; };
+		6311C4CDCA446D3D08470166 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EB2D5B00D8F1E3FDC524A5 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -20,13 +20,13 @@
 		13B07F961A680F5B00A75B9A /* Docuvault.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Docuvault.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Docuvault/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Docuvault/Info.plist; sourceTree = "<group>"; };
-		3C3FBE99E178CE502FB2DF6E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Docuvault/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		3CEBECD0D6CCE42C321EF8CF /* Pods-Docuvault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Docuvault.debug.xcconfig"; path = "Target Support Files/Pods-Docuvault/Pods-Docuvault.debug.xcconfig"; sourceTree = "<group>"; };
-		51DEC2A16B17424DEED00F40 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Docuvault/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		727B7F753B575E1DBDA0ACC7 /* libPods-Docuvault.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Docuvault.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19EB2D5B00D8F1E3FDC524A5 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Docuvault/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		204E27A9F71E8EC23B48CE68 /* Pods-Docuvault.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Docuvault.release.xcconfig"; path = "Target Support Files/Pods-Docuvault/Pods-Docuvault.release.xcconfig"; sourceTree = "<group>"; };
+		324D778DCCA1D9A332C8A94B /* Pods-Docuvault.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Docuvault.debug.xcconfig"; path = "Target Support Files/Pods-Docuvault/Pods-Docuvault.debug.xcconfig"; sourceTree = "<group>"; };
+		55F7A86FC981A2C76BBFF901 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Docuvault/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		7398742638A28B6D969A1827 /* libPods-Docuvault.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Docuvault.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Docuvault/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		CC58E28DB48AEAA21E578365 /* Pods-Docuvault.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Docuvault.release.xcconfig"; path = "Target Support Files/Pods-Docuvault/Pods-Docuvault.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Docuvault/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* Docuvault-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Docuvault-Bridging-Header.h"; path = "Docuvault/Docuvault-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40BC344DBEDC8D9E13265437 /* libPods-Docuvault.a in Frameworks */,
+				3945B706B13D3E1A4F14B6BA /* libPods-Docuvault.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				3C3FBE99E178CE502FB2DF6E /* PrivacyInfo.xcprivacy */,
+				55F7A86FC981A2C76BBFF901 /* PrivacyInfo.xcprivacy */,
 			);
 			name = Docuvault;
 			sourceTree = "<group>";
@@ -62,17 +62,34 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				727B7F753B575E1DBDA0ACC7 /* libPods-Docuvault.a */,
+				7398742638A28B6D969A1827 /* libPods-Docuvault.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7AF137637C6E9E0F98EBB1F9 /* Docuvault */ = {
+		3A5107D1A2D557FAE76154CA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				51DEC2A16B17424DEED00F40 /* ExpoModulesProvider.swift */,
+				324D778DCCA1D9A332C8A94B /* Pods-Docuvault.debug.xcconfig */,
+				204E27A9F71E8EC23B48CE68 /* Pods-Docuvault.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5A09CA54C6CA724CD52B69A0 /* Docuvault */ = {
+			isa = PBXGroup;
+			children = (
+				19EB2D5B00D8F1E3FDC524A5 /* ExpoModulesProvider.swift */,
 			);
 			name = Docuvault;
+			sourceTree = "<group>";
+		};
+		67E027DDDC38D6F16E0CFBDA /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				5A09CA54C6CA724CD52B69A0 /* Docuvault */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -89,8 +106,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				D6336C749E6A03FD468D7012 /* Pods */,
-				998BCADC55A27C7BD935297F /* ExpoModulesProviders */,
+				3A5107D1A2D557FAE76154CA /* Pods */,
+				67E027DDDC38D6F16E0CFBDA /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -105,14 +122,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		998BCADC55A27C7BD935297F /* ExpoModulesProviders */ = {
-			isa = PBXGroup;
-			children = (
-				7AF137637C6E9E0F98EBB1F9 /* Docuvault */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,16 +129,6 @@
 			);
 			name = Supporting;
 			path = Docuvault/Supporting;
-			sourceTree = "<group>";
-		};
-		D6336C749E6A03FD468D7012 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3CEBECD0D6CCE42C321EF8CF /* Pods-Docuvault.debug.xcconfig */,
-				CC58E28DB48AEAA21E578365 /* Pods-Docuvault.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +139,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Docuvault" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				A5379E851EB70A6E21471D88 /* [Expo] Configure project */,
+				F292324744475597E005DC5A /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				64C1663C682D8259AC5FACCD /* [CP] Embed Pods Frameworks */,
+				700D91ED18624767D62EFF1B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +195,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				6DD50FAF2F6DBD644455513B /* PrivacyInfo.xcprivacy in Resources */,
+				5E1621303EEEE369A7A4560E /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +239,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		64C1663C682D8259AC5FACCD /* [CP] Embed Pods Frameworks */ = {
+		700D91ED18624767D62EFF1B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,7 +301,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Docuvault/Pods-Docuvault-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A5379E851EB70A6E21471D88 /* [Expo] Configure project */ = {
+		F292324744475597E005DC5A /* [Expo] Configure project */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -329,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				14BD2D3894A462683AC878E0 /* ExpoModulesProvider.swift in Sources */,
+				6311C4CDCA446D3D08470166 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,12 +337,13 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CEBECD0D6CCE42C321EF8CF /* Pods-Docuvault.debug.xcconfig */;
+			baseConfigurationReference = 324D778DCCA1D9A332C8A94B /* Pods-Docuvault.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Docuvault/Docuvault.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5NQ2GAN5FZ;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -374,12 +374,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC58E28DB48AEAA21E578365 /* Pods-Docuvault.release.xcconfig */;
+			baseConfigurationReference = 204E27A9F71E8EC23B48CE68 /* Pods-Docuvault.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Docuvault/Docuvault.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5NQ2GAN5FZ;
 				INFOPLIST_FILE = Docuvault/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (

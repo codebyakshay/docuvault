@@ -158,6 +158,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     paddingVertical: 4,
     elevation: 4,
+    borderBottomWidth: 0.2,
+    elevation: 4,
+    shadowColor: "#000", // any rgba/hex
+    shadowOffset: { width: 0, height: 2 }, // same as elevation Y
+    shadowOpacity: 0.25, // 0-1
+    shadowRadius: 4, // blur
   },
   dropdownItem: {
     padding: 10,

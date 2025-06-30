@@ -1,6 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import BottomTabs from "./BottomTabs";
+import DocumentManagerScreen from "@/screen/DocumentManagerScreen/DocumentManagerScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -17,7 +18,14 @@ export default function MainDrawer() {
         },
       }}
     >
-      <Drawer.Screen name="DocuVault" component={BottomTabs} />
+      <Drawer.Screen name="Dashboard" component={BottomTabs} />
+      <Drawer.Screen
+        name="Document Manager"
+        component={DocumentManagerScreen}
+        options={{
+          headerShown: true,
+        }}
+      />
     </Drawer.Navigator>
   );
 }

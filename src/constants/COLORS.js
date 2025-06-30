@@ -7,7 +7,7 @@ const COLORS = {
     PRIMARY: "#007fff",
 
     // ⚪ Background or card surfaces (light theme)
-    BACKGROUND: "##fffdfa",
+    BACKGROUND: "#fffdfa",
 
     // 🔘 Accent or button highlights
     ACCENT: "#03a9f4",

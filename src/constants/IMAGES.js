@@ -10,6 +10,14 @@ const IMAGES = {
   ONBOARDING: {
     light: require("../../assets/image/onboaring-PSD.png"),
   },
+  DOCUSCAN: {
+    light: require("../../assets/image/docu-scan-light.png"),
+    dark: require("../../assets/image/docu-scan-dark.png"),
+  },
+  DOCUPLOAD: {
+    light: require("../../assets/image/docu-upload-light.png"),
+    dark: require("../../assets/image/docu-upload-dark.png"),
+  },
 };
 
 export default IMAGES;

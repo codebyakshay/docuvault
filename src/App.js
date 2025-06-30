@@ -1,15 +1,15 @@
 // src/App.js
+import React, { useContext, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useColorScheme, View, Text } from "react-native";
-
-//Screens
-
 import { NavigationContainer } from "@react-navigation/native";
 import RootNavigation from "./navigations/RootNavigation";
 import { useFonts } from "expo-font";
+import { VaultProvider, VaultContext } from "@/vault/VaultProvider";
+import { SplashScreen } from "./screen/SplashScreen/SplashScreen";
 
-export default function App() {
+function InnerApp() {
   const colorScheme = useColorScheme();
 
   const [fontsLoaded] = useFonts({
@@ -19,26 +19,25 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Loading fonts...</Text>
-      </View>
-    );
+    return <SplashScreen />;
   }
 
   return (
     <>
-      {colorScheme === "dark" ? (
-        <StatusBar style="light" />
-      ) : (
-        <StatusBar style="dark" />
-      )}
-
+      <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
       <SafeAreaProvider>
         <NavigationContainer>
           <RootNavigation />
         </NavigationContainer>
       </SafeAreaProvider>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <VaultProvider>
+      <InnerApp />
+    </VaultProvider>
   );
 }

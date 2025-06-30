@@ -11,19 +11,30 @@ import { useDrawerStatus } from "@react-navigation/drawer";
 import IMAGES from "@/constants/IMAGES";
 import { darkTheme, lightTheme } from "@/constants/THEME";
 import Menu from "@/../assets/image/menu.svg";
-import SQLiteTestScreen from "@/screen/SQLiteTestScreen/SQLiteTestScreen";
 
 const Tab = createBottomTabNavigator();
 
 export default function BottomTabs() {
-  const isDrawerOpen = useDrawerStatus() === "open";
   const colorScheme = useColorScheme();
 
   return (
     <Tab.Navigator
-      initialRouteName="SQLiteTestScreen"
+      initialRouteName="Home"
+      tabBar={(props) => <CustomTabBar {...props} />}
+      // \\ //
+
+      // SCREEN OPTIONS
       screenOptions={({ navigation }) => ({
-        headerShown: true,
+        headerTitleAlign: "center",
+        headerStyle: {
+          backgroundColor:
+            colorScheme === "dark"
+              ? darkTheme.colors.BACKGROUND
+              : lightTheme.colors.BACKGROUND,
+          elevation: 0,
+          shadowOpacity: 0,
+        },
+
         headerRight: () => (
           <Pressable
             onPress={() => navigation.toggleDrawer()}
@@ -42,8 +53,11 @@ export default function BottomTabs() {
           <Pressable {...props} android_ripple={{ color: "transparent" }} />
         ),
       })}
-      tabBar={(props) => <CustomTabBar {...props} />}
     >
+      {/*  */}
+      {/*  */}
+      {/* / */}
+
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -65,14 +79,6 @@ export default function BottomTabs() {
               />
             </View>
           ),
-          headerStyle: {
-            backgroundColor:
-              colorScheme === "dark"
-                ? darkTheme.colors.BACKGROUND
-                : lightTheme.colors.BACKGROUND,
-            elevation: 0,
-            shadowOpacity: 0,
-          },
         }}
       />
 
@@ -81,7 +87,23 @@ export default function BottomTabs() {
         component={ScanScreen}
         options={{
           iconName: "document-scanner",
-          iconType: MaterialIcons, // import this at the top
+          iconType: MaterialIcons,
+
+          //
+
+          headerTitle: ({}) => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={IMAGES.DOCUSCAN[colorScheme]}
+                style={{ width: 160, height: 80, resizeMode: "contain" }}
+              />
+            </View>
+          ),
         }}
       />
 
@@ -91,10 +113,22 @@ export default function BottomTabs() {
         options={{
           iconName: "drive-folder-upload",
           iconType: MaterialIcons, // import this at the top
+
+          headerTitle: ({}) => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={IMAGES.DOCUPLOAD[colorScheme]}
+                style={{ width: 160, height: 80, resizeMode: "contain" }}
+              />
+            </View>
+          ),
         }}
       />
-
-      <Tab.Screen name="SQLiteTestScreen" component={SQLiteTestScreen} />
     </Tab.Navigator>
   );
 }
