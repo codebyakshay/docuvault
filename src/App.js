@@ -8,6 +8,7 @@ import RootNavigation from "./navigations/RootNavigation";
 import { useFonts } from "expo-font";
 import { VaultProvider, VaultContext } from "@/vault/VaultProvider";
 import { SplashScreen } from "./screen/SplashScreen/SplashScreen";
+import { Provider as PaperProvider } from "react-native-paper";
 
 function InnerApp() {
   const colorScheme = useColorScheme();
@@ -37,7 +38,9 @@ function InnerApp() {
 export default function App() {
   return (
     <VaultProvider>
-      <InnerApp />
+      <PaperProvider>
+        <InnerApp />
+      </PaperProvider>
     </VaultProvider>
   );
 }

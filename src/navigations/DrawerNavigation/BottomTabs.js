@@ -74,7 +74,7 @@ export default function BottomTabs() {
               }}
             >
               <Image
-                source={IMAGES.SPLASH[colorScheme]}
+                source={IMAGES.HOMESCREEN[colorScheme]}
                 style={{ width: 160, height: 80, resizeMode: "contain" }}
               />
             </View>

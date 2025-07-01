@@ -10,13 +10,19 @@ const IMAGES = {
   ONBOARDING: {
     light: require("../../assets/image/onboaring-PSD.png"),
   },
+
+  HOMESCREEN: {
+    light: require("../../assets/image/HeaderLogo/HOME-SCREEN-LIGHT.png"),
+    dark: require("../../assets/image/HeaderLogo/HOME-SCREEN-DARK.png"),
+  },
+
   DOCUSCAN: {
-    light: require("../../assets/image/docu-scan-light.png"),
-    dark: require("../../assets/image/docu-scan-dark.png"),
+    light: require("../../assets/image/HeaderLogo/DOCUSCAN-LIGHT.png"),
+    dark: require("../../assets/image/HeaderLogo/DOCUSCAN-DARK.png"),
   },
   DOCUPLOAD: {
-    light: require("../../assets/image/docu-upload-light.png"),
-    dark: require("../../assets/image/docu-upload-dark.png"),
+    light: require("../../assets/image/HeaderLogo/DOCUUPLOAD-LIGHT.png"),
+    dark: require("../../assets/image/HeaderLogo/DOCUUPLOAD-LIGHT.png"),
   },
 };
 

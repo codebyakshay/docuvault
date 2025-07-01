@@ -1,6 +1,7 @@
 // src/store/index.js
 import { configureStore } from "@reduxjs/toolkit";
 import foldersReducer from "./slices/foldersSlice";
+import filereducer from "./slices/fileSlice";
 
 /**
  * To survive React‑Native Fast Refresh, we keep the store in a global.
@@ -14,7 +15,7 @@ function createStore() {
   return configureStore({
     reducer: {
       folders: foldersReducer,
-      // add more slices here…
+      files: filereducer,
     },
     middleware: (getDefault) =>
       getDefault({

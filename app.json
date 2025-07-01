@@ -24,9 +24,6 @@
       "edgeToEdgeEnabled": true,
       "package": "com.docuvault"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
     "extra": {
       "eas": {
         "projectId": "cdc78a03-a11b-408c-a1ae-7168f274d490"
@@ -34,6 +31,13 @@
     },
     "plugins": [
       "expo-font",
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "DocuVault needs access to your camera to scan documents.",
+          "enableMicrophonePermission": false
+        }
+      ],
       [
         "expo-sqlite",
         {
