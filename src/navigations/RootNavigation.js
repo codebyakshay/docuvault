@@ -18,7 +18,7 @@ export default function RootNavigation() {
   return (
     <>
       <Stack.Navigator
-        initialRouteName="MainApp"
+        initialRouteName="SplashScreen"
         screenOptions={{
           headerShown: false,
           animation: "simple_push",
