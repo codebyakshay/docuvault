@@ -1,23 +1,47 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createFolder } from "@/store/slices/foldersSlice";
-import { View, Text, StyleSheet, Button } from "react-native";
+// src/screen/DocumentManagerScreen/DocumentManagerScreen.jsx
+import React, { useContext, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadRootFolders } from "@/store/slices/foldersSlice";
+import { View, StyleSheet, ScrollView, useColorScheme } from "react-native";
+import { loadAllFiles } from "@/store/slices/fileSlice";
+import AllDocumentFileFolderCard from "@/constants/AllDocumentFileFolderCard";
+import { darkTheme, lightTheme } from "@/constants/THEME";
 
 export default function DocumentManagerScreen() {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [folderName, setFolderName] = useState("");
+  const colorScheme = useColorScheme();
   const dispatch = useDispatch();
 
-  // Handler to create a new folder
-  const handleCreateFolder = () => {
-    dispatch(createFolder({ name: "test-2" }));
-  };
+  const folders = useSelector((s) => s.folders.list);
+  const files = useSelector((s) => s.files.list);
+
+  const items = [
+    ...folders.map((f) => ({ ...f, type: "folder" })),
+    ...files.map((f) => ({ ...f, type: "file" })),
+  ];
+
+  useEffect(() => {
+    dispatch(loadRootFolders());
+  }, [dispatch]);
+  useEffect(() => {
+    dispatch(loadAllFiles());
+  }, [dispatch]);
 
   return (
-    <View style={styles.screen}>
-      <Text style={styles.title}>Document Manager</Text>
-      <Button title="＋ Add Folder" onPress={() => handleCreateFolder()} />
-    </View>
+    <ScrollView
+      style={[
+        styles.screen,
+        {
+          backgroundColor:
+            colorScheme === "dark"
+              ? darkTheme.colors.BACKGROUND
+              : lightTheme.colors.BACKGROUND,
+        },
+      ]}
+    >
+      {items.map((item) => (
+        <AllDocumentFileFolderCard key={item.id} item={item} />
+      ))}
+    </ScrollView>
   );
 }
 
@@ -25,48 +49,6 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 16,
-    justifyContent: "flex-start",
     backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 16,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalContent: {
-    width: "80%",
-    backgroundColor: "#fff",
-    padding: 20,
-    borderRadius: 8,
-    elevation: 5,
-  },
-  modalTitle: {
-    fontSize: 18,
-    marginBottom: 12,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 4,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    marginBottom: 16,
-  },
-  buttonRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  button: {
-    paddingVertical: 8,
-    paddingHorizontal: 16,
-  },
-  buttonText: {
-    fontSize: 16,
-    color: "#007AFF",
   },
 });

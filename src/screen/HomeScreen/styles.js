@@ -25,4 +25,9 @@ export const styles = StyleSheet.create({
   },
 
   recentContainer: {},
+
+  filesContainer: {
+    gap: 5,
+    padding: lightTheme.spacing.MD,
+  },
 });

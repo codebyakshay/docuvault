@@ -1,6 +1,6 @@
 // src/store/slices/foldersSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchRootFolders, insertFolder } from "@/api/folderAPI";
+import { deleteFolder, fetchRootFolders, insertFolder } from "@/api/folderAPI";
 
 /* ---------- thunks ---------- */
 
@@ -23,6 +23,19 @@ export const createFolder = createAsyncThunk(
       return await insertFolder(db, name, parentId);
     } catch (err) {
       console.error("Error creating folder:", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const removeFolder = createAsyncThunk(
+  "folders/delete",
+  async (id, { extra: { db }, rejectWithValue }) => {
+    try {
+      await deleteFolder(db, id);
+      return id;
+    } catch (err) {
+      console.error("Error deleting folder:", err);
       return rejectWithValue(err.message);
     }
   }
@@ -61,6 +74,17 @@ const foldersSlice = createSlice({
       s.list.unshift(payload);
     });
     b.addCase(createFolder.rejected, (s, { payload, error }) => {
+      s.error = payload || error.message;
+    });
+
+    /* delete */
+    b.addCase(removeFolder.pending, (s) => {
+      s.error = null;
+    });
+    b.addCase(removeFolder.fulfilled, (s, { payload: deletedId }) => {
+      s.list = s.list.filter((f) => f.id !== deletedId);
+    });
+    b.addCase(removeFolder.rejected, (s, { payload, error }) => {
       s.error = payload || error.message;
     });
   },

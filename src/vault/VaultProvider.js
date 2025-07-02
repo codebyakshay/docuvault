@@ -4,6 +4,7 @@ import { View, Text } from "react-native";
 import * as FileSystem from "expo-file-system";
 import { openDocuVaultAsync } from "../db";
 import { initStore, getStore } from "@/store";
+import { loadRootFolders } from "@/store/slices/foldersSlice";
 import { Provider as ReduxProvider } from "react-redux";
 
 export const VaultContext = createContext({
@@ -27,6 +28,10 @@ export function VaultProvider({ children }) {
 
         // 3️⃣ Initialize Redux store, passing db & bucketDir as thunk extras
         initStore({ db, bucketDir });
+
+        // 3️⃣b Kick off initial Redux hydration (folders, etc.)
+        getStore().dispatch(loadRootFolders());
+        // getStore().dispatch(loadAllFiles()); // when you create filesSlice
 
         // 4️⃣ Save into state so children render only once ready
         setVault({ db, bucketDir });

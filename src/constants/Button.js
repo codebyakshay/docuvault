@@ -2,6 +2,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { lightTheme } from "./THEME";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { ActivityIndicator } from "react-native-paper";
 
 const Button = ({
   onPress,
@@ -10,20 +11,29 @@ const Button = ({
   height,
   style,
   iconName = "arrow-forward-ios",
+  isLoading = false,
 }) => {
   return (
-    <Pressable
-      style={[
-        styles.btnContainer,
-        style,
-        width !== undefined && { width },
-        height !== undefined && { height },
-      ]}
-      onPress={onPress}
-    >
-      <Text style={styles.btnText}>{Title}</Text>
-      <MaterialIcons name={iconName} size={20} color="black" />
-    </Pressable>
+    <>
+      <Pressable
+        style={[
+          styles.btnContainer,
+          style,
+          width !== undefined && { width },
+          height !== undefined && { height },
+        ]}
+        onPress={onPress}
+      >
+        {isLoading === true ? (
+          <ActivityIndicator />
+        ) : (
+          <>
+            <Text style={styles.btnText}>{Title}</Text>
+            <MaterialIcons name={iconName} size={20} color="black" />
+          </>
+        )}
+      </Pressable>
+    </>
   );
 };
 

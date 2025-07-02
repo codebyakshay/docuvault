@@ -10,13 +10,17 @@ import { storage } from "@/utils/storage";
 //icons
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useState } from "react";
 
 //
 //
 export default function LoginScreen({ navigation }) {
   const colorScheme = useColorScheme();
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   async function handleLogin() {
+    setIsLoggingIn(true);
+
     const hasHardware = await LocalAuthentication.hasHardwareAsync();
     const supported =
       await LocalAuthentication.supportedAuthenticationTypesAsync();
@@ -31,15 +35,18 @@ export default function LoginScreen({ navigation }) {
 
       if (result.success) {
         storage.set("isLoggedIn", true);
+        setIsLoggingIn(false);
         navigation.replace("MainApp");
       } else {
         Alert.alert("Authentication Failed", "Please try again.");
+        setIsLoggingIn(false);
       }
     } else {
       Alert.alert(
         "Biometric Auth Not Available",
         "Your device doesn't support biometrics."
       );
+      setIsLoggingIn(false);
     }
   }
   return (
@@ -107,7 +114,7 @@ export default function LoginScreen({ navigation }) {
       </View>
 
       <View style={styles.bottomContainer}>
-        <Button Title={"LOGIN"} onPress={handleLogin} />
+        <Button Title={"LOGIN"} onPress={handleLogin} isLoading={isLoggingIn} />
       </View>
     </View>
   );

@@ -26,4 +26,17 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     textTransform: "uppercase",
   },
+
+  filesListContainer: {},
+
+  fileContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    margin: 1,
+  },
+  fileText: {
+    marginHorizontal: 4,
+    fontFamily: lightTheme.fonts.REGULAR,
+    color: lightTheme.colors.TEXT_SECONDARY,
+  },
 });

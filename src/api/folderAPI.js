@@ -25,3 +25,8 @@ export async function insertFolder(db, name, parentId = null) {
 
   return { id, name, parentId, createdAt: new Date().toISOString() };
 }
+
+export async function deleteFolder(db, id) {
+  await db.runAsync(`DELETE FROM folders WHERE id = ?`, [id]);
+  return id;
+}

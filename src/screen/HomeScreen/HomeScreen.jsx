@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loadRootFolders } from "@/store/slices/foldersSlice";
 import { useEffect } from "react";
@@ -7,33 +7,25 @@ import {
   useColorScheme,
   Keyboard,
   TouchableWithoutFeedback,
-  Modal,
+  ScrollView,
 } from "react-native";
 import { styles } from "./styles";
 import { darkTheme, lightTheme } from "@/constants/THEME";
 import SearchBar from "@/constants/SearchBar";
 import FolderCard from "@/constants/FolderCard/FolderCard";
-import ScrollAwareFlatList from "@/constants/ScrollAwareFlatList/ScrollAwareFlatList";
-import { Text } from "react-native";
-import ShowAllToggleBtn from "@/constants/ShowAllToggleBtn";
 import SubHeadingText from "@/constants/SubHeadingText";
-import { Pressable, ScrollView } from "react-native-gesture-handler";
+import { loadAllFiles, loadFilesForFolder } from "@/store/slices/fileSlice";
+import FileCard from "@/constants/FileCard/FileCard";
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme();
   const searchRef = useRef();
-
   const dispatch = useDispatch();
+
+  const [currentFolderId, setCurrentFolderId] = useState(null);
+
   const folders = useSelector((state) => state.folders.list);
-
-  // Load folders once on mount
-  useEffect(() => {
-    dispatch(loadRootFolders());
-  }, [dispatch]);
-
-  useEffect(() => {
-    // console.log("Folders from Redux:", folders);
-  }, [folders]);
+  const files = useSelector((state) => state.files.list);
 
   const handleOutsidePress = () => {
     Keyboard.dismiss();
@@ -41,6 +33,18 @@ export default function HomeScreen() {
       searchRef.current.closeDropdown();
     }
   };
+
+  useLayoutEffect(() => {
+    dispatch(loadRootFolders());
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
+    dispatch(loadAllFiles());
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
+    dispatch(loadFilesForFolder(currentFolderId));
+  }, [dispatch, currentFolderId]);
 
   return (
     <>
@@ -66,15 +70,22 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.listContainer}>
-              {folders.map((item) => (
-                <View key={item.id} style={styles.rowContainer}>
-                  <FolderCard
-                    title={item.name}
-                    iconName={item.iconName}
-                    iconType={item.iconType}
-                  />
-                </View>
-              ))}
+              {folders.map((item) => {
+                const filesInFolder = files
+                  .filter((f) => f.folderId === item.id)
+                  .slice(0, 5);
+                return (
+                  <View key={item.id} style={styles.rowContainer}>
+                    <FolderCard
+                      title={item.name}
+                      iconName={item.iconName}
+                      iconType={item.iconType}
+                      fileCount={filesInFolder.length}
+                      files={filesInFolder}
+                    />
+                  </View>
+                );
+              })}
             </View>
 
             <View style={styles.recentContainer}>
@@ -82,6 +93,16 @@ export default function HomeScreen() {
                 title={"Recently Added"}
                 toggleTitle={"Show All"}
               />
+
+              <View style={styles.filesContainer}>
+                {files.map((file) => (
+                  <FileCard
+                    key={file.id}
+                    title={file.name}
+                    preview={file.blobName}
+                  />
+                ))}
+              </View>
             </View>
           </ScrollView>
         </View>

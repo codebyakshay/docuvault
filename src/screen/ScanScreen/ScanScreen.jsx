@@ -16,7 +16,9 @@ import { pickBackCamera } from "./cameraHelpers";
 import styles from "./styles";
 import PreviewAndForm from "./PreviewAndForm";
 import { useDispatch } from "react-redux";
-import { createFile } from "@/store/slices/fileSlice";
+
+import { createFile, loadAllFiles } from "@/store/slices/fileSlice";
+import { loadRootFolders } from "@/store/slices/foldersSlice";
 
 export default function ScanScreen({ navigation }) {
   const colorScheme = useColorScheme();
@@ -25,6 +27,7 @@ export default function ScanScreen({ navigation }) {
   const dispatch = useDispatch();
 
   const permission = useCameraPermission(); // ✅ tiny hook
+
   const [showCamera, setShowCamera] = useState(false);
   const [photo, setPhoto] = useState(null);
   const [nameOfDocument, setNameOfDocument] = useState("");
@@ -62,6 +65,8 @@ export default function ScanScreen({ navigation }) {
 
       setPhoto(null);
       setNameOfDocument("");
+      await dispatch(loadRootFolders());
+      await dispatch(loadAllFiles());
       navigation.goBack();
     } catch (err) {
       console.error("Saving failed:", err);

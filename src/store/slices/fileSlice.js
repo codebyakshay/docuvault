@@ -1,75 +1,63 @@
 // src/store/slices/fileSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import * as Crypto from "expo-crypto";
-
-import { storeCapturedPhoto } from "@/api/fileAPI";
-import { insertFolder, fetchRootFolders } from "@/api/folderAPI";
-
-/**
- * INTERNAL helper
- * Ensures the special “All Documents” folder exists and returns its id.
- * If it already exists (name matches exactly), we reuse it.
- */
-
-async function ensureAllDocsFolder(db) {
-  // 1. look for an existing root‑level folder named exactly "All Documents"
-  const rows = await db.getAllAsync(
-    `SELECT id FROM folders WHERE name = ? AND parentId IS NULL LIMIT 1`,
-    ["All Documents"]
-  );
-  if (rows.length) return rows[0].id;
-
-  // 2. else create it
-  const id = await Crypto.randomUUID();
-  await insertFolder(db, "All Documents", null); // reuse folderAPI helper
-  return id;
-}
+import {
+  createAndInsertFile,
+  fetchAllFiles,
+  fetchFilesInFolder,
+  deleteFile,
+} from "@/api/fileAPI";
 
 /* ────────────────────────────────────────────────
    Thunk: createFile
    ------------------------------------------------
-   • copies the temp photo into bucketDir
-   • ensures the “All Documents” folder exists
-   • inserts a row into the files table (defaulting folderId = allDocsId)
-   • returns the new file object → reducer adds it to state
+   • delegates file creation and insertion to API helper
    _______________________________________________ */
 
 export const createFile = createAsyncThunk(
   "files/create",
   async ({ photo, name }, { extra: { db, bucketDir }, rejectWithValue }) => {
     try {
-      // 1. copy/move blob
-      const stored = await storeCapturedPhoto(photo, bucketDir);
-      // stored = { id, blobName, dest:path, size, mimeType }
-
-      // 2. ensure root folder
-      const allDocsId = await ensureAllDocsFolder(db);
-
-      // 3. insert DB row
-      await db.runAsync(
-        `INSERT INTO files (id, name, folderId, blobName, size, mimeType, createdAt)
-         VALUES (?, ?, ?, ?, ?, ?, datetime('now'))`,
-        [
-          stored.id,
-          name || stored.blobName,
-          allDocsId,
-          stored.blobName,
-          stored.size,
-          stored.mimeType,
-        ]
-      );
-
-      return {
-        id: stored.id,
-        name: name || stored.blobName,
-        folderId: allDocsId,
-        blobName: stored.blobName,
-        size: stored.size,
-        mimeType: stored.mimeType,
-        createdAt: new Date().toISOString(),
-      };
+      const row = await createAndInsertFile({ photo, name, bucketDir, db });
+      return row; // passes to reducer
     } catch (err) {
       console.error("Error creating file:", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const loadAllFiles = createAsyncThunk(
+  "files/loadAll",
+  async (_, { extra: { db }, rejectWithValue }) => {
+    try {
+      return await fetchAllFiles(db);
+    } catch (err) {
+      console.error("Error loading files:", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const loadFilesForFolder = createAsyncThunk(
+  "files/loadForFolder",
+  async (folderId, { extra: { db }, rejectWithValue }) => {
+    try {
+      return await fetchFilesInFolder(db, folderId);
+    } catch (err) {
+      console.error("Error loading files for folder:", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const removeFile = createAsyncThunk(
+  "files/delete",
+  async ({ id, blobName }, { extra: { db, bucketDir }, rejectWithValue }) => {
+    try {
+      await deleteFile(db, bucketDir, id, blobName);
+      return id; // pass deleted file id to reducer
+    } catch (err) {
+      console.error("Error deleting file:", err);
       return rejectWithValue(err.message);
     }
   }
@@ -84,6 +72,9 @@ const filesSlice = createSlice({
     error: null,
   },
   reducers: {},
+
+  // write files-
+
   extraReducers: (b) => {
     b.addCase(createFile.pending, (s) => {
       s.status = "loading";
@@ -96,6 +87,46 @@ const filesSlice = createSlice({
     b.addCase(createFile.rejected, (s, { payload, error }) => {
       s.status = "failed";
       s.error = payload || error.message;
+    });
+
+    // read files-
+    b.addCase(loadAllFiles.pending, (s) => {
+      s.status = "loading";
+      s.error = null;
+    });
+    b.addCase(loadAllFiles.fulfilled, (s, { payload }) => {
+      s.status = "succeeded";
+      s.list = payload; // overwrite with DB snapshot
+    });
+    b.addCase(loadAllFiles.rejected, (s, { payload, error }) => {
+      s.status = "failed";
+      s.error = payload || error.message;
+    });
+
+    // load files for a specific folder
+
+    b.addCase(loadFilesForFolder.pending, (state) => {
+      state.status = "loading";
+      state.error = null;
+    });
+    b.addCase(loadFilesForFolder.fulfilled, (state, { payload }) => {
+      state.status = "succeeded";
+      state.list = payload; // replace list with only that folder’s files
+    });
+    b.addCase(loadFilesForFolder.rejected, (state, { payload, error }) => {
+      state.status = "failed";
+      state.error = payload || error.message;
+    });
+
+    // delete file
+    b.addCase(removeFile.pending, (state) => {
+      state.error = null;
+    });
+    b.addCase(removeFile.fulfilled, (state, { payload: deletedId }) => {
+      state.list = state.list.filter((f) => f.id !== deletedId);
+    });
+    b.addCase(removeFile.rejected, (state, { payload, error }) => {
+      state.error = payload || error.message;
     });
   },
 });
