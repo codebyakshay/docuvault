@@ -18,10 +18,12 @@ import Logo from "../../assets/image/folder1.svg";
 import { useDispatch } from "react-redux";
 import { loadRootFolders, removeFolder } from "@/store/slices/foldersSlice";
 import { loadAllFiles, removeFile } from "@/store/slices/fileSlice";
+import { useNavigation } from "@react-navigation/native";
 
 export default function AllDocumentFileFolderCard({ item }) {
   const colorScheme = useColorScheme();
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   const bg =
     colorScheme === "dark"
@@ -41,6 +43,7 @@ export default function AllDocumentFileFolderCard({ item }) {
       dispatch(loadAllFiles());
     }
   }
+
   // show iOS action sheet
   const showIOSMenu = () => {
     const options =
@@ -110,23 +113,36 @@ export default function AllDocumentFileFolderCard({ item }) {
         </>
       ) : (
         <>
-          <Image
-            source={{ uri: bucketDir + item.blobName }}
-            style={styles.thumb}
-          />
-          <Text
-            style={[
-              styles.name,
+          <Pressable
+            style={({ pressed }) => [
+              pressed && { opacity: 0.6 },
               {
-                color:
-                  colorScheme === "dark"
-                    ? darkTheme.colors.TEXT_SECONDARY
-                    : lightTheme.colors.TEXT_SECONDARY,
+                flexDirection: "row",
+                alignItems: "center",
+                width: "100%",
+                height: "100%",
               },
             ]}
+            onPress={() => navigation.navigate("ImagePreviewScreen", { item })}
           >
-            {item.name}
-          </Text>
+            <Image
+              source={{ uri: bucketDir + item.blobName }}
+              style={styles.thumb}
+            />
+            <Text
+              style={[
+                styles.name,
+                {
+                  color:
+                    colorScheme === "dark"
+                      ? darkTheme.colors.TEXT_SECONDARY
+                      : lightTheme.colors.TEXT_SECONDARY,
+                },
+              ]}
+            >
+              {item.name}
+            </Text>
+          </Pressable>
         </>
       )}
     </View>

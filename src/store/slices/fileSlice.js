@@ -63,6 +63,19 @@ export const removeFile = createAsyncThunk(
   }
 );
 
+export const moveFile = createAsyncThunk(
+  "files/move",
+  async ({ fileId, targetFolderId }, { extra: { db }, rejectWithValue }) => {
+    try {
+      await moveFileToFolder(db, fileId, targetFolderId);
+      return { fileId, targetFolderId };
+    } catch (err) {
+      console.error("Error moving file:", err);
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
 /* ───────────────────────── slice ───────────────────────── */
 const filesSlice = createSlice({
   name: "files",
@@ -126,6 +139,17 @@ const filesSlice = createSlice({
       state.list = state.list.filter((f) => f.id !== deletedId);
     });
     b.addCase(removeFile.rejected, (state, { payload, error }) => {
+      state.error = payload || error.message;
+    });
+
+    // move file
+    b.addCase(moveFile.fulfilled, (state, { payload }) => {
+      const file = state.list.find((f) => f.id === payload.fileId);
+      if (file) {
+        file.folderId = payload.targetFolderId;
+      }
+    });
+    b.addCase(moveFile.rejected, (state, { payload, error }) => {
       state.error = payload || error.message;
     });
   },

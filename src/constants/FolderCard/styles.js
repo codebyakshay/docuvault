@@ -1,12 +1,16 @@
+// src/constants/FolderCard/styles.js
+
 import { StyleSheet } from "react-native";
 import { lightTheme } from "../THEME";
 
 export const styles = StyleSheet.create({
   folderContainer: {
-    minWidth: 160,
+    minWidth: 120,
     padding: 8,
     borderRadius: lightTheme.radius.MD,
     alignItems: "center",
+    marginVertical: 6,
+    marginHorizontal: 4,
   },
 
   pressed: {

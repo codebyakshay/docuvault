@@ -8,7 +8,7 @@ export async function fetchRootFolders(db) {
     `SELECT *
        FROM folders
       WHERE parentId IS NULL
-      ORDER BY createdAt DESC`
+      ORDER BY createdAt ASC`
   );
 }
 

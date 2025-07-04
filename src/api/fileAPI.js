@@ -10,7 +10,7 @@ import { insertFolder } from "@/api/folderAPI";
  */
 
 export async function fetchAllFiles(db) {
-  return db.getAllAsync(`SELECT * FROM files ORDER BY createdAt DESC`);
+  return db.getAllAsync(`SELECT * FROM files ORDER BY createdAt ASC`);
 }
 
 export async function storeCapturedPhoto(photo, bucketDir) {
@@ -87,7 +87,7 @@ export async function fetchFilesInFolder(db, folderId) {
     `SELECT *
        FROM files
       WHERE folderId = ?
-      ORDER BY createdAt DESC`,
+      ORDER BY createdAt ASC`,
     [folderId]
   );
 }
@@ -103,4 +103,11 @@ export async function deleteFile(db, bucketDir, id, blobName) {
   }
 
   return id;
+}
+
+export async function moveFileToFolder(db, fileId, targetFolderId) {
+  await db.runAsync(`UPDATE files SET folderId = ? WHERE id = ?`, [
+    targetFolderId,
+    fileId,
+  ]);
 }

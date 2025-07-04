@@ -16,8 +16,9 @@ const Button = ({
   return (
     <>
       <Pressable
-        style={[
+        style={({ pressed }) => [
           styles.btnContainer,
+          pressed && { opacity: 0.6 },
           style,
           width !== undefined && { width },
           height !== undefined && { height },

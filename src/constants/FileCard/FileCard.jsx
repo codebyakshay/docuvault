@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, Text, useColorScheme, Image } from "react-native";
+import { View, Text, useColorScheme, Image, Pressable } from "react-native";
 import { styles } from "./styles";
 import { darkTheme, lightTheme } from "../THEME";
 import { VaultContext } from "@/vault/VaultProvider";
@@ -7,8 +7,10 @@ import { VaultContext } from "@/vault/VaultProvider";
 export default function FileCard({
   title = "Test",
   preview,
+  file,
   tags = ["red", "green", "blue"],
   category = ["Medical"],
+  navigation,
 }) {
   const colorScheme = useColorScheme();
   const { bucketDir } = useContext(VaultContext);
@@ -16,8 +18,8 @@ export default function FileCard({
   // console.log("bucketDir:", bucketDir);
 
   return (
-    <View
-      style={[
+    <Pressable
+      style={({ pressed }) => [
         styles.cardContainer,
         {
           backgroundColor:
@@ -25,7 +27,10 @@ export default function FileCard({
               ? darkTheme.colors.CARD_BACKGROUND_DARK
               : lightTheme.colors.CARD_BACKGROUND_LIGHT,
         },
+        // when pressed, add a bit of opacity
+        pressed && { opacity: 0.7 },
       ]}
+      onPress={() => navigation.navigate("ImagePreviewScreen", { file: file })}
     >
       <View style={styles.previewContainer}>
         <Image
@@ -94,6 +99,6 @@ export default function FileCard({
           ))}
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }

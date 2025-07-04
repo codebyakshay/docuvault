@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   listContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 5,
+    gap: 10,
     justifyContent: "center",
   },
 
@@ -20,9 +20,7 @@ export const styles = StyleSheet.create({
     paddingVertical: lightTheme.spacing.MD,
   },
 
-  rowContainer: {
-    margin: 8,
-  },
+  rowContainer: {},
 
   recentContainer: {},
 

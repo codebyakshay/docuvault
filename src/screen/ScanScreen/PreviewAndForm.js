@@ -17,6 +17,7 @@ export default function PreviewAndForm({
   nameOfDocument,
   setNameOfDocument,
   onSubmitDocument,
+  onSubmitAndAddAnother,
 }) {
   const trimmed = nameOfDocument?.trim();
 
@@ -37,12 +38,22 @@ export default function PreviewAndForm({
         style={styles.input}
       />
 
-      <Button
-        Title="Save"
-        iconName="check"
-        onPress={() => onSubmitDocument?.(trimmed)}
-        disabled={!trimmed}
-      />
+      <View style={{ marginVertical: 10 }}>
+        <Button
+          Title="Save"
+          iconName="check"
+          onPress={() => onSubmitDocument?.(trimmed)}
+          disabled={!trimmed}
+        />
+        <View style={{ marginVertical: 10 }} />
+
+        <Button
+          Title="Save and take another"
+          iconName="check"
+          onPress={() => onSubmitAndAddAnother?.(trimmed)}
+          disabled={!trimmed}
+        />
+      </View>
     </View>
   );
 }

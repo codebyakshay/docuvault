@@ -16,8 +16,9 @@ import FolderCard from "@/constants/FolderCard/FolderCard";
 import SubHeadingText from "@/constants/SubHeadingText";
 import { loadAllFiles, loadFilesForFolder } from "@/store/slices/fileSlice";
 import FileCard from "@/constants/FileCard/FileCard";
+import MasonryList from "@react-native-seoul/masonry-list";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const colorScheme = useColorScheme();
   const searchRef = useRef();
   const dispatch = useDispatch();
@@ -70,12 +71,16 @@ export default function HomeScreen() {
             </View>
 
             <View style={styles.listContainer}>
-              {folders.map((item) => {
-                const filesInFolder = files
-                  .filter((f) => f.folderId === item.id)
-                  .slice(0, 5);
-                return (
-                  <View key={item.id} style={styles.rowContainer}>
+              <MasonryList
+                data={folders}
+                keyExtractor={(item) => item.id.toString()}
+                numColumns={2}
+                renderItem={({ item }) => {
+                  const filesInFolder = files
+                    .filter((f) => f.folderId === item.id)
+                    .slice(0, item.name === "All Documents" ? 5 : 3);
+
+                  return (
                     <FolderCard
                       title={item.name}
                       iconName={item.iconName}
@@ -83,9 +88,10 @@ export default function HomeScreen() {
                       fileCount={filesInFolder.length}
                       files={filesInFolder}
                     />
-                  </View>
-                );
-              })}
+                  );
+                }}
+                contentContainerStyle={{ padding: 8 }}
+              />
             </View>
 
             <View style={styles.recentContainer}>
@@ -100,6 +106,8 @@ export default function HomeScreen() {
                     key={file.id}
                     title={file.name}
                     preview={file.blobName}
+                    file={file}
+                    navigation={navigation}
                   />
                 ))}
               </View>

@@ -47,24 +47,30 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
           <Pressable
             key={route.key}
             onPress={() => navigation.navigate(route.name)}
-            style={{
-              backgroundColor: isFocused ? "#3b82f6" : "transparent",
-              paddingHorizontal: isFocused ? 30 : 0,
-              paddingVertical: isFocused ? 5 : 0,
-              borderRadius: isFocused ? 100 : 0,
-              flexDirection: "row",
-              alignItems: "center",
-              elevation: isFocused ? 5 : 0,
-              marginHorizontal: isFocused ? 10 : 2,
-            }}
+            style={({ pressed }) => [
+              {
+                backgroundColor: isFocused ? "#3b82f6" : "transparent",
+                paddingHorizontal: isFocused ? 30 : 0,
+                paddingVertical: isFocused ? 5 : 0,
+                borderRadius: isFocused ? 100 : 0,
+                flexDirection: "row",
+                alignItems: "center",
+                elevation: isFocused ? 5 : 0,
+                marginHorizontal: isFocused ? 10 : 2,
+              },
+              pressed && { opacity: 0.6 },
+            ]}
           >
             <Pressable
-              style={{
-                flexDirection: "row",
-                padding: isFocused ? 12 : 0,
+              style={({ pressed }) => [
+                {
+                  flexDirection: "row",
+                  padding: isFocused ? 12 : 0,
 
-                marginHorizontal: isFocused ? 10 : 0,
-              }}
+                  marginHorizontal: isFocused ? 10 : 0,
+                },
+                pressed && { opacity: 0.6 },
+              ]}
               onPress={() => navigation.navigate(route.name)}
             >
               {isFocused ? (

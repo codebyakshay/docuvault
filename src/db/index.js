@@ -25,6 +25,20 @@ export async function openDocuVaultAsync() {
         mimeType  TEXT,
         createdAt TEXT
       );
+
+      CREATE TABLE IF NOT EXISTS tags (
+        id   TEXT PRIMARY KEY NOT NULL,
+        name TEXT NOT NULL
+      );
+
+      INSERT OR IGNORE INTO tags (id, name) VALUES
+        ('red', 'red'),
+        ('orange', 'orange'),
+        ('yellow', 'yellow'),
+        ('green', 'green'),
+        ('blue', 'blue'),
+        ('indigo', 'indigo'),
+        ('violet', 'violet');
     `);
 
     return db;

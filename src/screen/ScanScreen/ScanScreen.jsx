@@ -73,6 +73,21 @@ export default function ScanScreen({ navigation }) {
     }
   };
 
+  const onSubmitAndAddAnother = async (trimmedName) => {
+    if (!photo) return;
+    try {
+      // 1️⃣ save current
+      await dispatch(createFile({ photo, name: trimmedName })).unwrap();
+      await dispatch(loadRootFolders());
+      await dispatch(loadAllFiles());
+      // 2️⃣ reset state & re-open camera for next
+      setNameOfDocument("");
+      setPhoto(null);
+      setShowCamera(true);
+    } catch (err) {
+      console.error("Saving & continuing failed:", err);
+    }
+  };
   if (showCamera) {
     const device = pickBackCamera(devices);
     if (!device) {
@@ -129,6 +144,7 @@ export default function ScanScreen({ navigation }) {
               nameOfDocument={nameOfDocument}
               setNameOfDocument={setNameOfDocument}
               onSubmitDocument={onSubmitDocument}
+              onSubmitAndAddAnother={onSubmitAndAddAnother}
             />
             <View style={styles.reTakeAndCancleBtnContainer}>
               <Button iconName="camera" Title="Retake" onPress={openCamera} />
