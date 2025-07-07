@@ -7,8 +7,7 @@ export async function fetchRootFolders(db) {
   return db.getAllAsync(
     `SELECT *
        FROM folders
-      WHERE parentId IS NULL
-      ORDER BY createdAt ASC`
+      WHERE parentId IS NULL`
   );
 }
 

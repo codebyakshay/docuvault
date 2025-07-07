@@ -12,6 +12,7 @@ import MainDrawer from "./DrawerNavigation/MainDrawer";
 import AddNewFolder from "@/screen/AddNewFolder/AddNewFolder";
 import { darkTheme, lightTheme } from "@/constants/THEME";
 import ImagePreviewScreen from "@/screen/ImagePreviewScreen/ImagePreviewScreen";
+import MoveToFolderScreen from "@/screen/MoveToFolderScreen/MoveToFolderScreen";
 
 /* SCREENS */
 
@@ -79,6 +80,16 @@ export default function RootNavigation() {
         <Stack.Screen
           name="ImagePreviewScreen"
           component={ImagePreviewScreen}
+          options={{
+            presentation: "modal", // makes it slide up like a sheet
+            gestureEnabled: true, // allow pull-down to dismiss
+            headerShown: true, // hide the default header if you build your own
+          }}
+        />
+
+        <Stack.Screen
+          name="MoveToFolderScreen"
+          component={MoveToFolderScreen}
           options={{
             presentation: "modal", // makes it slide up like a sheet
             gestureEnabled: true, // allow pull-down to dismiss

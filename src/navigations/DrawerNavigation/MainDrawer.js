@@ -1,6 +1,7 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import BottomTabs from "./BottomTabs";
+
 import DocumentManagerScreen from "@/screen/DocumentManagerScreen/DocumentManagerScreen";
 
 const Drawer = createDrawerNavigator();
@@ -8,13 +9,14 @@ const Drawer = createDrawerNavigator();
 export default function MainDrawer() {
   return (
     <Drawer.Navigator
+      initialRouteName="Document Manager"
       screenOptions={{
         headerShown: false,
         drawerPosition: "right", // 👈 to open from right
         drawerType: "slide", // optional: can be 'front', 'back', 'slide', or 'permanent'
         drawerStyle: {
-          backgroundColor: "#fff",
-          width: 250, // adjust width
+          // backgroundColor: "#fff",
+          width: 350, // adjust width
         },
       }}
     >

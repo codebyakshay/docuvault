@@ -5,6 +5,7 @@ import {
   fetchAllFiles,
   fetchFilesInFolder,
   deleteFile,
+  moveFileToFolder,
 } from "@/api/fileAPI";
 
 /* ────────────────────────────────────────────────
