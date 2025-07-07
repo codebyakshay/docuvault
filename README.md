@@ -1,14 +1,13 @@
 # 🔐 DocuVault
 
-**DocuVault** is a secure, offline-first document vault built with React Native (Expo). It lets you scan, store, organize, and manage your personal documents (IDs, certificates, bills, etc.) directly on your device—no servers required.
+**DocuVault** is a secure, offline-first document vault built with React Native (Expo). It lets you scan, store, organize, and manage your personal documents (IDs, certificates, bills, etc.) entirely on your device—no external servers required.
 
 ---
 
 ## 🎥 Demo
 
 <div align="center">
-  <img src="./assets/demos/scan.gif" alt="Scan Demo" width="300" />
-  <img src="./assets/demos/managedocs_scan.gif" alt="Manage Docs Demo" width="300" />
+  <img src="./assets/demos/new_demo.gif"   alt="DocuVault Demo" width="354" height="768" />
 </div>
 
 ---
@@ -16,51 +15,62 @@
 ## ✨ Key Features
 
 - 🔒 **Offline-First & Encrypted**  
-  All data lives locally in SQLite & the device filesystem.
+  All metadata lives in a local SQLite database; scanned blobs live in the device filesystem.
 
 - 📂 **Folder Management**
 
+  - Auto-creates an “All Documents” root folder on first run
   - Create, list, delete folders
-  - “All Documents” root folder auto-created on first run
+  - Expandable folder-tree view with file counts
+  - Modal “Add New Folder” sheet
 
 - 📷 **Document Scanning**
 
-  - React-native-vision-camera integration
-  - Capture, preview, retake, and name scans
+  - Integrated with `react-native-vision-camera`
+  - Capture → preview → name → save workflow
+  - “Save and take another” option for batch scans
 
-- 📁 **File Storage**
+- 📁 **File Storage & Viewing**
 
-  - Saves blobs to a “bucket” directory
-  - Metadata persisted in SQLite (id, name, folderId, mimeType, createdAt)
+  - Blobs stored under a private “bucket” directory
+  - Metadata (id, name, folderId, mimeType, createdAt) in SQLite
+  - Drill into folder contents or view “Recently Added” across all folders
+  - Thumbnail preview panels
 
-- 🗂️ **Categorization & Filtering**
+- 🔀 **Move & Delete Operations**
 
-  - View “Recently Added”
-  - Drill into specific folder contents
-
-- 🗑️ **Deletion & Context Menus**
-
-  - Long-press cards to delete or move files/folders
-  - Native ActionSheet on iOS & Alert on Android
+  - Long-press on folder cards: delete only
+  - Long-press on file cards: move or delete
+  - Native ActionSheet on iOS; Alert dialog on Android
+  - “Move to…” modal screen with dropdown selector
 
 - 🌓 **Theming**
 
-  - Dark & Light mode support
+  - Fully supports Dark & Light modes
 
-- 🚀 **Performance**
-  - Redux Toolkit slices with async thunks
-  - Fast Refresh–safe store rehydration
-  - Expo SQLite + FileSystem
+- 🚀 **Architecture & Performance**
+  - Redux Toolkit slices & async thunks (`createAsyncThunk`)
+  - Optimistic UI updates & fast‐refresh–safe store rehydration
+  - Modular custom hooks (camera permission, navigation hides)
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework & Language**: React Native (Expo), JavaScript
+- **Language & Runtime**: JavaScript, React Native (Expo)
 - **State Management**: Redux Toolkit
-- **Storage**:
-  - SQLite (expo-sqlite) for metadata
-  - FileSystem (expo-file-system) for blobs
-- **Camera**: react-native-vision-camera
-- **UI**: React Navigation (stack, drawer, custom tabs), react-native-context-menu-view, react-native-paper
-- **Utilities**: expo-crypto for UUIDs, custom hooks & modular design
+- **Local Storage**:
+  - `expo-sqlite` (metadata)
+  - `expo-file-system` (scanned image blobs)
+- **Camera**: `react-native-vision-camera`
+- **UI & Navigation**:
+  - React Navigation (Stack, Drawer, custom BottomTabs)
+  - `react-native-context-menu-view` for iOS context menus
+  - `react-native-paper` inputs
+  - Custom dropdown via `react-native-element-dropdown`
+- **Utilities**:
+  - `expo-crypto` for UUIDs
+  - Custom `VaultContext` for bucket path
+  - Tailwind-style theming constants
+
+---
