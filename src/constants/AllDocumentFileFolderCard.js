@@ -73,7 +73,6 @@ export default function AllDocumentFileFolderCard({ item }) {
           });
         } else if (choice === "Delete") {
           handleDelete();
-          console.log("Delete item:", item);
         }
       }
     );
@@ -85,7 +84,6 @@ export default function AllDocumentFileFolderCard({ item }) {
     if (item.type !== "folder") {
       buttons.push({
         text: "Move",
-        onPress: () => console.log("Move item:", item),
       });
     }
     buttons.push({

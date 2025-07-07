@@ -9,7 +9,7 @@ const Drawer = createDrawerNavigator();
 export default function MainDrawer() {
   return (
     <Drawer.Navigator
-      initialRouteName="Document Manager"
+      initialRouteName="Dashboard"
       screenOptions={{
         headerShown: false,
         drawerPosition: "right", // 👈 to open from right

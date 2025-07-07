@@ -96,7 +96,7 @@ const filesSlice = createSlice({
     });
     b.addCase(createFile.fulfilled, (s, { payload }) => {
       s.status = "succeeded";
-      s.list.unshift(payload);
+      s.list.push(payload);
     });
     b.addCase(createFile.rejected, (s, { payload, error }) => {
       s.status = "failed";
@@ -110,7 +110,7 @@ const filesSlice = createSlice({
     });
     b.addCase(loadAllFiles.fulfilled, (s, { payload }) => {
       s.status = "succeeded";
-      s.list = payload; // overwrite with DB snapshot
+      s.list = payload;
     });
     b.addCase(loadAllFiles.rejected, (s, { payload, error }) => {
       s.status = "failed";

@@ -20,7 +20,6 @@ export default function MoveToFolderScreen({ route }) {
 
   async function onConfirmMove() {
     if (!selectedFolderId) return;
-    console.log(item.id, selectedFolderId);
 
     await dispatch(
       moveFile({

@@ -40,11 +40,16 @@ export default function AddNewFolder({ navigation }) {
     setIsNameTaken(false);
     try {
       await dispatch(createFolder({ name: trimmed })).unwrap();
+      await dispatch(loadRootFolders());
       navigation.goBack();
     } catch (err) {
       console.error("Error creating folder:", err);
     }
   }
+
+  useEffect(() => {
+    dispatch(loadRootFolders());
+  }, [dispatch]);
 
   return (
     <View

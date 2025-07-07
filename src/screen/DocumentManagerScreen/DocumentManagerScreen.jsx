@@ -225,11 +225,7 @@ export default function DocumentManagerScreen({}) {
                     width: "95%",
                     marginLeft: "5%",
                     marginVertical: 4,
-                    backgroundColor: "",
-                    borderWidth: 0.3,
-                    borderRadius: 12,
-                    padding: 10,
-                    borderColor: colorScheme === "dark" ? "white" : "lightgrey",
+
                     justifyContent: "center",
                   }}
                 >
@@ -253,6 +249,12 @@ export default function DocumentManagerScreen({}) {
                         style={{
                           flexDirection: "row",
                           alignItems: "center",
+                          marginVertical: 4,
+                          borderWidth: 0.3,
+                          borderRadius: 12,
+                          padding: 10,
+                          borderColor:
+                            colorScheme === "dark" ? "white" : "grey",
                         }}
                       >
                         <Image
