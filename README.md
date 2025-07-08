@@ -7,7 +7,7 @@
 ## 🎥 Demo
 
 <div align="center">
-  <img src="./assets/demos/new_demo.gif"   alt="DocuVault Demo" width="354" />
+  <img src="./assets/demos/demo.gif"   alt="DocuVault Demo" width="300" />
 </div>
 
 ---
